@@ -22,6 +22,12 @@ session_start();
         if(!isset($_SESSION['id'])){
            echo "<a href=login.php style=float: right;>เข้าสู่ระบบ</a>";
         }
+        else{
+            echo "<div style='float: right;'>
+              ผู้ใช้งานระบบ : $_SESSION[username]&nbsp;&nbsp;
+              <a href=logout.php>ออกจากระบบ</a>
+            </div>";
+        }
     ?>
     
     <ul>
