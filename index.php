@@ -20,7 +20,7 @@ session_start();
     </select>
     <?php
         if(!isset($_SESSION['id'])){
-           echo "<a href=login.php style=float: right;>เข้าสู่ระบบ</a>"
+           echo "<a href=login.php style=float: right;>เข้าสู่ระบบ</a>";
         }
     ?>
     
