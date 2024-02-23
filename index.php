@@ -10,9 +10,10 @@
 </head>
 <?php session_start(); ?> 
 <body>
-    <h1 style="text-align: center;">Web Board</h1>
+<div class="container - lg">
+    <h1 style="text-align: center;">Web Ja Board</h1>
     <form action="post.php" method="get">
-        <div class="container">
+        <div class="container-fluid">
             <nav class="navbar bg-body-tertiary">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="index.php"><i class="bi bi-house-door-fill"></i> Home</a>
@@ -29,7 +30,7 @@
                     </form>
                 </div>
             </nav>
-
+        </div>                        
     <div class="mt-3 d-flex justify-content-between">
         <div >
             <label for="">หมวดหมู่</label>
@@ -60,6 +61,6 @@
     }
         ?> 
     </table> 
-     
+</div>
 </body>
 </html>
