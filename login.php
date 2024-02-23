@@ -20,7 +20,16 @@
     </style>
 </head>
 <body>
+    <div class="container-lg">
     <h1 class="text-center">Webboard</h1>
+
+    <?php include "nav.php" ?>
+
+      <div class="row">
+        <div class="col-lg-4 col-md-3 col-sm-2 col-1"></div>
+        <div class="col-lg-4 col-md-6 col-sm-8 col-10"></div>
+        <div class="col-lg-4 col-md-3 col-sm-2 col-1"></div>
+
     <div class="container mt-3">
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
@@ -52,6 +61,7 @@
             </div><br>
             <p class="text-center">ถ้ายังไม่ได้เป็นสมาชิก <a href="register.php">กรุณาสมัครสมาชิก</a></p>
         </div>
+    </div>
     </div>
 </body>
 </html>
