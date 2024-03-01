@@ -17,7 +17,7 @@ if(!isset($_SESSION['id'])) {
 }
 ?>
     <div class="container">
-    <h1 style="text-align: center;" class="mt-3">Webboard</h1>
+    <h1 style="text-align: center;" class="mt-3">WebBoard</h1>
     <?php 
     include "nav.php";
     ?>

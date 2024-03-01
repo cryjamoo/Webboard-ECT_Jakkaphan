@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-<h1 style="text-align: center;">Webboard</h1>
+<h1 style="text-align: center;">WebBoard</h1>
     <hr>
     <div style="text-align: center;">
     <?php
