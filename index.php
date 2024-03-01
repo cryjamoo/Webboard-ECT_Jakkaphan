@@ -11,7 +11,7 @@
 <?php session_start(); ?> 
 <body>
 <div class="container - lg">
-    <h1 style="text-align: center;">Web Ja Board</h1>
+    <h1 style="text-align: center;">Webboard</h1>
     <form action="post.php" method="get">
         <div class="container-fluid">
             <nav class="navbar bg-body-tertiary">

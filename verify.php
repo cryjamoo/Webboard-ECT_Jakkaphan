@@ -1,53 +1,36 @@
-<?php 
-session_start();
-if(isset($_SESSION['id'])){
-    header("location: index.php");
-    die();
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verify</title>
-    <style>
-        body{
-            font-family: sans-serif;
-        }
-        h1,p,a{
-            text-align: center;
-        }
-    </style>
+    <title>Document</title>
 </head>
 <body>
-    <hr>
-    <?php
-        $login=$_POST["user"];
-        $pwd=$_POST["password"];
-        if($login=="admin" && $pwd=="ad1234"){
-            $_SESSION['username'] = 'admin';
-            $_SESSION['role'] = 'a';
-            $_SESSION['id'] = session_id();
-            header("location: index.php");
-            die();
-            //echo "<p>เข้าสู่ระบบด้วย Admin";
-        }elseif($login=="member" && $pwd=="mem1234"){
-            $_SESSION['username'] = 'member';
-            $_SESSION['role'] = 'm';
-            $_SESSION['id'] = session_id();
-            header("location: index.php");
-            die();
-            //echo "<p>เข้าสู้ระบบด้วย MEMBER";
-        }else{
-            $_SESSION['error'] = 'error';
-            header("location: login.php");
-            die();
-            //echo "<p>ชื่อบัญชีหรือรหัสผ่านไม่ถูกต้อง";
-        }
-    ?>
-    <p>Login = <?php echo $_POST['user']; ?></p>
-    <p>Password = <?php echo $_POST['password']; ?></p>
-    <p><a href="index.php"></a></p>
+<?php session_start(); 
+    if(isset($_SESSION['id'])){
+        header("Location:index.php");
+        die();
+    }
+   $id = $_POST['login'];
+   $pwd = $_POST['password'];
+   $conn = new PDO("mysql:host=localhost;dbname=webboard;charset=utf8","root","");
+   $sql="SELECT * FROM user where login='$id'and password=sha1('$pwd')";
+   $result=$conn->query($sql);
+   if($result->rowCount()==1){
+    $data=$result->fetch(PDO::FETCH_ASSOC);
+    $_SESSION["username"] = $data['login'];
+    $_SESSION["role"] = $data['role'];
+    $_SESSION["user_id"] = $data['id'];
+    $_SESSION["id"] = session_id();
+    header("Location:index.php");
+    die();
+   }
+   else {
+   $_SESSION["error"] = 'error';
+   header("Location:login.php");
+   die();
+   }
+   $conn=null;
+   ?>
 </body>
 </html>

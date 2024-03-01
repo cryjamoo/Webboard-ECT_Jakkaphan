@@ -12,7 +12,7 @@
 <body>
 <?php session_start();  ?>
      <div class="container - lg">
-    <h1 style="text-align: center;" class="mt-3">Web Ja board</h1>
+    <h1 style="text-align: center;" class="mt-3">Webboard</h1>
     <div class="container mt-3">
     <?php 
     include "nav.php";
