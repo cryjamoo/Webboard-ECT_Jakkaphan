@@ -2,7 +2,7 @@
     session_start();
     if(isset($_POST['login'])){
     $login = $_POST['login'];
-    $pwd = sha1($_POST['pass']);
+    $pwd = sha1($_POST['pwd']);
     $name = $_POST['name'];
     $gender = $_POST['gender'];
     $email = $_POST['email'];

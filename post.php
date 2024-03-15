@@ -9,11 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
-<?php session_start();  
-if(!isset($_SESSION['id'])) {
-    header("Location:index.php");
-    die();
-}
+<?php session_start();
 ?>
 <h1 style="text-align: center;" class="mt-3">WebBoard</h1>
     <?php include"nav.php"; 
@@ -32,8 +28,8 @@ if(!isset($_SESSION['id'])) {
     <div class="row mt-4">
     <div class="col-lg-3 col-md-2 col-sm-1"></div> 
         <div class="col-lg-6 col-md-8 col-sm-10"> 
-            <div class="card border-success mt-3">      
-                <div class="card-header bg-success text-white"><?php echo "$_SESSION[title]"; ?></div>            
+            <div class="card border-primary mt-3">      
+                <div class="card-header bg-primary text-white"><?php echo "$_SESSION[title]"; ?></div>            
                 <div class="card-body"> 
     <?php  echo "$_SESSION[content]<br>$data[login]:$data[post_date]";
     $conn=null;
@@ -59,12 +55,14 @@ if(!isset($_SESSION['id'])) {
     <?php  echo "$row[content]<br>$row[login]:$row[post_date]";
     $i++;     }
     $conn=null;
+     if(isset($_SESSION['id'])) {    
         ?> 
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <div class="container_lg"> 
     <div class="row mt-4">
         
@@ -96,7 +94,7 @@ if(!isset($_SESSION['id'])) {
 
     </div>
 </div>
-    
+<?php  }  ?>
 
    
 </body>

@@ -63,23 +63,26 @@
         while($row = $result->fetch()){
 
             if(isset($_SESSION['id'])&& $_SESSION['role'] == 'a'){
-                echo"<tr><td>[$row[0]] <a href=post.php?id=$row[2] style=text-decoration:none>$row[1]</a><BR>$row[3] : $row[4]</td></tr> ";
-                echo "<td><form action=post_save.php method=post><button type=summit class=btn btn-danger m-1>ลบ</button></form></td>";
+                echo"<tr><td class=col-11>[$row[0]] <a href=post.php?id=$row[2] style=text-decoration:none>$row[1]</a><BR>$row[3] : $row[4]</td> ";
+                echo "<td class=col-1><a href='delete.php?del=$row[2]' name='del' onclick='return myConfirm()' class='btn btn-danger'>ลบ</a></td></tr>";
             }
             else echo"<tr><td>[$row[0]] <a href=post.php?id=$row[2] style=text-decoration:none>$row[1]</a><BR>$row[3] : $row[4]</td></tr>";
         }
         $conn=null;
         ?> 
-    </table>
-    
+    </table>  
 </div>
 </body>
+    <script>
+        function myConfirm(){
+            txt = confirm('ต้องการลบกระทู้นี้ใช่หรือไม่');
+            if(txt){
+                document.location.href=`delete.php?del=$row[2]`;
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    </script>
 </html>
-
-
-
-
-
-
-
-

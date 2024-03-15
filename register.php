@@ -9,6 +9,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
+    <script>
+        function OnBlurPwd(){
+             let pwd=document.getElementById("pwd");
+             let pwd2=document.getElementById("pwd2");
+             if(pwd.value!==pwd2.value){
+                 alert("รหัสผ่านไม่ตรงกัน");
+                 pwd2.value="";
+             }
+        }
+    </script>
 <?php session_start();  ?>
     <div class="container">
     <h1 style="text-align: center;" class="mt-3">WebBoard</h1>
@@ -31,8 +41,14 @@
                     <div class="row mt-3">
                         <label for="pass" class="col-form-label col-lg-3">รหัสผ่าน:</label>
                         <div class="col-lg-9">
-                        <input type="password"  class="form-control"name="pass" placeholder="Password" required>
+                        <input type="password"  class="form-control"name="pwd" id="pwd" placeholder="Password" required>
                     </div>
+                    <div class="row mt-3">
+                        <label class="col-lg-3 col-form-label col-lg-3" for="pwd2">ใส่รหัสผ่านอีกครั้ง: </label>
+                        <div class="col-lg-9">
+                        <input type="password" name="pwd2" class="form-control" onblur="OnBlurPwd()" id="pwd2" placeholder="Confirm-Password" required>
+                    </div>
+                 </div>
                 </div>
                     <div class="row mt-3">
                         <label for="name" class="col-form-label col-lg-3">ชื่อ-นามสกุล:</label>
